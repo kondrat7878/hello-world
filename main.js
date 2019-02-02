@@ -129,3 +129,43 @@ console.log(sortAges);
 console.log('sort ages doun');
 let sortAges_1 = ages.sort((a , b) => b - a);
 console.log(sortAges_1);
+
+
+//reduce 
+
+console.log('reduce arr');
+let ageSum = 0;
+for(let i = 0; i < ages.length; i++){
+    ageSum += ages[i];
+}
+console.log(ageSum);
+
+let ageSum_1 = ages.reduce(function(acc , age){
+    return acc + age;
+}, 0);
+console.log(ageSum_1);
+
+let ageSum_2 = ages.reduce((acc , age) => acc + age , 0);
+console.log(ageSum_2);
+
+//reduce obj
+
+console.log('reduce obj: total years');
+
+let totalYears = companies.reduce(function(acc , value){
+    return acc + (value.end - value.start);
+}, 0);
+console.log(totalYears);
+
+let totalYears_1 = companies.reduce((acc , value) => acc +(value.end - value.start), 0);
+console.log(totalYears_1);
+
+//combined metods :map ,filter , sort , reduce
+console.log('Combined metods : map, filter , sort ,reduce');
+
+let combined = ages
+    .map(age => age * 2)
+    .filter(age => age >= 40)
+    .sort((a ,b ) => a - b)
+    .reduce((acc , value) => acc + value , 0);
+console.log(combined);    
